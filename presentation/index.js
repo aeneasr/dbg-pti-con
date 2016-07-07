@@ -41,8 +41,7 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
   circle: require("../assets/circle-ci.gif"),
   dropbox: require("../assets/dropbox.gif"),
-  quickstart: require("../assets/quickstart.png"),
-//   markdown: require("../assets/markdown.png")
+  quickstart: require("../assets/quickstart.png")
 };
 //
 preloader(images);
@@ -235,10 +234,22 @@ export default class Presentation extends React.Component {
             ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Questions?
+            </Heading>
+            <List>
+              <Appear><ListItem>Read Hydra Guide and API Docs</ListItem></Appear>
+              <Appear><ListItem>Ask in Mailinglist</ListItem></Appear>
+              <Appear><ListItem>Ask in Chat</ListItem></Appear>
+              <Appear><ListItem>Create issue on GitHub</ListItem></Appear>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="secondary">
               Thank you for your time!
             </Heading>
-            <List>
+            <List textColor="white">
               <Appear><ListItem>Twitter: @_aeneasr</ListItem></Appear>
               <Appear><ListItem>GitHub: @arekkas</ListItem></Appear>
               <Appear><ListItem>Web: aeneas.io</ListItem></Appear>
