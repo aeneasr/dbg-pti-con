@@ -1,0 +1,31 @@
+// Open "Docker Quickstart Terminal" through start menu
+$ git clone https://github.com/ory-am/hydra.git
+
+$ cd hydra
+
+$ SYSTEM_SECRET=passwordtutorial DOCKER_IP=$(docker-machine ip default) docker-compose up -d
+Building hydra
+...
+
+
+$ docker-machine ip default
+192.168.99.100
+
+$ docker ps
+CONTAINER ID        IMAGE
+1b51d2d48e91        oryam/hydra-idp-react
+7735bf11c6be        hydra_hydra
+d32ce5fed52c        rethinkdb
+
+$ docker logs
+
+$ hydra connect
+Cluster URL: https://192.168.99.100:4444
+Client ID:
+Client Secret:
+
+$ hydra token client --skip-tls-verify
+Warning: Skipping TLS Certificate Verification.
+JLbnRS9GQmzUBT4x7ESNw0kj2wc0ffbMwOv3QQZW4eI.qkP-IQXn6guoFew8TvaMFUD-SnAyT8GmWuqGi3wuWXg
+
+$ hydra token validate <token> --skip-tls-verify
