@@ -39,9 +39,9 @@ require("spectacle/lib/themes/default/index.css");
 
 //
 const images = {
-  circle: require("../assets/circle-ci.gif")
-//   kat: require("../assets/kat.png"),
-//   logo: require("../assets/formidable-logo.svg"),
+  circle: require("../assets/circle-ci.gif"),
+  dropbox: require("../assets/dropbox.gif"),
+  quickstart: require("../assets/quickstart.png"),
 //   markdown: require("../assets/markdown.png")
 };
 //
@@ -57,7 +57,7 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme} bgColor="black">
-        <Deck transition={["zoom", "slide"]} transitionDuration={500}  bgColor="black">
+        <Deck transition={["zoom", "slide"]} transitionDuration={500} bgColor="black">
 
           <Slide transition={["zoom"]} bgColor="secondary">
             <Heading size={1} fit caps lineHeight={1} textColor="black">
@@ -89,6 +89,9 @@ export default class Presentation extends React.Component {
           <Slide bgImage={images.circle} transition={["fade"]}>
           </Slide>
 
+          <Slide bgImage={images.dropbox} transition={["fade"]}>
+          </Slide>
+
           <Slide transition={["zoom"]} bgColor="black">
             <Appear fid="1">
               <Heading size={1} caps fit textColor="secondary">
@@ -117,15 +120,18 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={[]} bgColor="black">
-            <Appear fid="1"><Text textColor="white">I was able to decide which repositories Circle CI will have access to.</Text></Appear>
+            <Appear fid="1"><Text textColor="white">I was able to decide which repositories Circle CI will have access
+              to.</Text></Appear>
           </Slide>
 
           <Slide transition={[]} bgColor="black">
-            <Appear fid="1"><Text textColor="white">Do not confuse OAuth2 with an authentication method, although it looked like one.</Text></Appear>
+            <Appear fid="1"><Text textColor="white">Do not confuse OAuth2 with an authentication method, although it
+              looked like one.</Text></Appear>
           </Slide>
 
           <Slide transition={[]} bgColor="black">
-            <Appear fid="1"><Text textColor="white">Using OAuth2 for authentication through a third party requires in-depth knowledge of OAuth2.</Text></Appear>
+            <Appear fid="1"><Text textColor="white">Using OAuth2 for authentication through a third party requires
+              in-depth knowledge of OAuth2.</Text></Appear>
           </Slide>
 
           <Slide transition={[]} bgColor="black">
@@ -140,7 +146,8 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit textColor="secondary">
               Authorization
             </Heading>
-            <Appear><Heading size={4} textColor="white">Passport control, checking if you are allowed to enter the country</Heading></Appear>
+            <Appear><Heading size={4} textColor="white">Passport control, checking if you are allowed to enter the
+              country</Heading></Appear>
             <Appear><Heading size={2} textColor="important">NOT OAuth2!</Heading></Appear>
           </Slide>
 
@@ -165,10 +172,13 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
             <List>
-              <Appear><ListItem>OAuth2 does not replace authentication nor authorization in your current environment.</ListItem></Appear>
-              <Appear><ListItem>OAuth2 is a framework of work flows for extending your current environment.</ListItem></Appear>
+              <Appear><ListItem>OAuth2 does not replace authentication nor authorization in your current
+                environment.</ListItem></Appear>
+              <Appear><ListItem>OAuth2 is a framework of work flows for extending your current
+                environment.</ListItem></Appear>
               <Appear><ListItem>OAuth2 makes sense when opening up APIs, otherwise it doesn't.</ListItem></Appear>
-              <Appear><ListItem>Due to it's nature (using opaque short living credentials), OAuth2 introduces a secure flow for mobile clients.</ListItem></Appear>
+              <Appear><ListItem>Due to it's nature (using opaque short living credentials), OAuth2 introduces a secure
+                flow for mobile clients.</ListItem></Appear>
             </List>
           </Slide>
 
@@ -186,14 +196,21 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="black">
             <List>
-              <Appear><ListItem>Scalable, low-latency, in memory Access Control, OAuth2, and OpenID Connect layer.</ListItem></Appear>
+              <Appear><ListItem>Scalable, low-latency, in memory Access Control, OAuth2, and OpenID Connect
+                layer.</ListItem></Appear>
               <Appear><ListItem>Runs on top of existing authentication and authorization.</ListItem></Appear>
-              <Appear><ListItem>1700 stars, trending multiple times on hackernews, reddit, GitHub, ...</ListItem></Appear>
-              <Appear><ListItem>Open Source, written in Google Go and supported by the Ludwig-Maximilians-Universität München.</ListItem></Appear>
+              <Appear><ListItem>1700 stars, trending multiple times on hackernews, reddit, GitHub,
+                ...</ListItem></Appear>
+              <Appear><ListItem>Open Source, written in Google Go and supported by the Ludwig-Maximilians-Universität
+                München.</ListItem></Appear>
               <Appear><ListItem>Fast growing ecosystem and community.</ListItem></Appear>
               <Appear><ListItem>Written and designed by me.</ListItem></Appear>
               <Appear><ListItem>Is now a part of cloud native company Ory GmbH.</ListItem></Appear>
             </List>
+          </Slide>
+
+          <Slide transition={["fade"]}>
+            <Image src={images.quickstart} />
           </Slide>
 
           <CodeSlide
@@ -201,11 +218,20 @@ export default class Presentation extends React.Component {
             lang="js"
             code={require("raw!../assets/install")}
             ranges={[
-              { loc: [0, 1] },
-              { loc: [1, 2], note: 'If you don\'t have git, download the zip package from github.com/ory-am/hydra' },
+              { loc: [0, 1], note: 'If you don\'t have git, download the zip package from github.com/ory-am/hydra' },
               { loc: [2, 3] },
-              { loc: [3, 4], note: 'SYSTEM_SECRET: This is used to encrypt data at rest' },
-              { loc: [3, 4], note: 'DOCKER_IP: Only required when using docker inside a VM' }
+              { loc: [4, 5], note: 'SYSTEM_SECRET: This is used to encrypt data at rest' },
+              { loc: [4, 5], note: 'DOCKER_IP: Only required when using docker inside a VM' },
+              { loc: [4, 5] },
+              { loc: [8, 9], note: 'Check if the name is correct' },
+              { loc: [11, 12], note: 'Hack: SSH into docker - saves you the trouble of installing the hydra CLI' },
+              { loc: [14, 15], note: 'OAuth2 Client Credentials Flow' },
+              { loc: [16, 17], note: 'OAuth2 Access Token!' },
+              { loc: [18, 19] },
+              { loc: [19, 35] },
+              { loc: [28, 29] },
+              { loc: [29, 30] },
+              { loc: [30, 31] }
             ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
