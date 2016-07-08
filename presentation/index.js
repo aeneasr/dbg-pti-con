@@ -65,13 +65,8 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="secondary">
             <Heading size={1} fit caps lineHeight={1} textColor="black">
-              OAuth2 and OpenID Connect in real life
+              Google Go (Golang)
             </Heading>
-            <Appear>
-              <Heading size={4} caps fit textColor="black">
-                OpenID Connect extends OAuth2
-              </Heading>
-            </Appear>
           </Slide>
 
           <Slide transition={[]} bgColor="black">
