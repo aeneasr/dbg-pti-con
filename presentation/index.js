@@ -41,7 +41,12 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
   circle: require("../assets/circle-ci.gif"),
   dropbox: require("../assets/dropbox.gif"),
-  quickstart: require("../assets/quickstart.png")
+  quickstart: require("../assets/quickstart.png"),
+  substitution: [
+    require("../assets/token-substitution-1.png"),
+    require("../assets/token-substitution-2.png"),
+    require("../assets/token-substitution-3.png")
+  ]
 };
 //
 preloader(images);
@@ -145,8 +150,7 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit textColor="secondary">
               Authorization
             </Heading>
-            <Appear><Heading size={4} textColor="white">Passport control, checking if you are allowed to enter the
-              country</Heading></Appear>
+            <Appear><Heading size={4} textColor="white">Customs decide evaluate your properties (bags) and decide if you're allowed to enter</Heading></Appear>
             <Appear><Heading size={2} textColor="important">NOT OAuth2!</Heading></Appear>
           </Slide>
 
@@ -154,13 +158,7 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit textColor="secondary">
               Delegation
             </Heading>
-            <Appear><Heading size={6} textColor="white">Giving your passport to your twin-brother</Heading></Appear>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="secondary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              OAuth2: Delegation of authorization!
-            </Heading>
+            <Appear><Heading size={6} textColor="white">Authentication: Giving your passport to your twin-brother</Heading></Appear>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="secondary">
@@ -169,12 +167,25 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
+          <Slide transition={[]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Delegation
+            </Heading>
+            <Appear><Heading size={6} textColor="white">Authorization: Giving your bags to your twin-brother for customs inspection</Heading></Appear>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="secondary">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              OAuth2: Delegation of authorization!
+            </Heading>
+          </Slide>
+
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
             <List>
               <Appear><ListItem>OAuth2 does not replace authentication nor authorization in your current
                 environment.</ListItem></Appear>
-              <Appear><ListItem>OAuth2 is a framework of work flows for extending your current
-                environment.</ListItem></Appear>
+              <Appear><ListItem>OAuth2 is a framework of work flows and extends your current
+                environment's interoperability.</ListItem></Appear>
               <Appear><ListItem>OAuth2 makes sense when opening up APIs, otherwise it doesn't.</ListItem></Appear>
               <Appear><ListItem>Due to it's nature (using opaque short living credentials), OAuth2 introduces a secure
                 flow for mobile clients.</ListItem></Appear>
@@ -226,12 +237,64 @@ export default class Presentation extends React.Component {
               { loc: [11, 12], note: 'Hack: SSH into docker - saves you the trouble of installing the hydra CLI' },
               { loc: [14, 15], note: 'OAuth2 Client Credentials Flow' },
               { loc: [16, 17], note: 'OAuth2 Access Token!' },
-              { loc: [18, 19] },
-              { loc: [19, 35] },
+              { loc: [18, 19], note: 'hydra token validate --skip-tls-verify <token>' },
+              { loc: [21, 22] },
+              { loc: [22, 26] },
+              { loc: [26, 27] },
+              { loc: [27, 28] },
               { loc: [28, 29] },
               { loc: [29, 30] },
-              { loc: [30, 31] }
+              { loc: [30, 31] },
+              { loc: [18 + 15, 19 + 15] },
+              { loc: [19 + 15, 35 + 15] },
+              { loc: [28 + 15, 29 + 15] },
+              { loc: [29 + 15, 30 + 15] },
+              { loc: [30 + 15, 31 + 15] }
             ]}/>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Live Demo
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              So what is OpenID Connect, exactly?
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Scenario: You run a financial app
+            </Heading>
+            <Appear>
+              <Heading size={2} caps>
+                you allow people to sign in via google
+              </Heading>
+            </Appear>
+          </Slide>
+
+          <Slide bgImage={images.substitution[0]} transition={["fade"]} />
+          <Slide bgImage={images.substitution[1]} transition={["fade"]} />
+          <Slide bgImage={images.substitution[2]} transition={["fade"]} />
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              ID Token
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Features
+            </Heading>
+            <List>
+              <Appear><ListItem>Delegate Authentication!</ListItem></Appear>
+              <Appear><ListItem>Flows for services, web apps and mobile apps.</ListItem></Appear>
+              <Appear><ListItem>Various interactions: Force password confirm, force 2FA, ...</ListItem></Appear>
+            </List>
+          </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">

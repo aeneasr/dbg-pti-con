@@ -16,6 +16,21 @@ $ hydra token client --skip-tls-verify
 Warning: Skipping TLS Certificate Verification.
 JLbnRS9GQmzUBT4x7ESNw0kj2wc0ffbMwOv3QQZW4eI.qkP-IQXn6guoFew8TvaMFUD-SnAyT8GmWuqGi3wuWXg
 
+$ hydra token validate --skip-tls-verify JLbnRS9GQmzUBT4x7ESNw0kj2wc0ffbMwOv3QQZW4eI.qkP-IQXn6guoFew8TvaMFUD-SnAyT8GmWuqGi3wuWXg
+Warning: Skipping TLS Certificate Verification.
+{
+        "sub": "9752fbeb-763a-4a9d-9657-f17efddfe9ad",
+        "scopes": [
+                "core",
+                "hydra"
+        ],
+        "iss": "hydra",
+        "aud": "9752fbeb-763a-4a9d-9657-f17efddfe9ad",
+        "iat": "2016-07-08T15:31:53.4169662+02:00",
+        "exp": "2016-07-08T16:31:53.4169662+02:00"
+}
+
+
 $ docker logs hydra_hydra_1
 time="2016-07-07T11:30:22Z" level=info msg="DATABASE_URL set, connecting to RethinkDB."
 time="2016-07-07T11:30:22Z" level=info msg="Connecting with RethinkDB: rethinkdb://database:28015/hydra (database:28015) (hydra)"
