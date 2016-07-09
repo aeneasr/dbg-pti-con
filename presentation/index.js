@@ -318,6 +318,17 @@ export default class Presentation extends React.Component {
             </Appear>
           </Slide>
 
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Thank you for your time!
+            </Heading>
+            <List textColor="white">
+              <Appear><ListItem>Twitter: @_aeneasr</ListItem></Appear>
+              <Appear><ListItem>GitHub: @arekkas</ListItem></Appear>
+              <Appear><ListItem>Web: aeneas.io</ListItem></Appear>
+            </List>
+          </Slide>
+
         </Deck>
       </Spectacle>
     );
