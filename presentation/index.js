@@ -219,6 +219,14 @@ export default class Presentation extends React.Component {
             </List>
           </Slide>
 
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              It's really fast
+            </Heading>
+            <Appear><Heading size={6} textColor="white">~600 requests / sec</Heading></Appear>
+            <Appear><Heading size={6} textColor="white">single instance, token validation</Heading></Appear>
+          </Slide>
+
           <Slide transition={["fade"]}>
             <Image src={images.quickstart} />
           </Slide>
