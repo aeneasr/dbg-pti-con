@@ -39,13 +39,16 @@ require("spectacle/lib/themes/default/index.css");
 
 //
 const images = {
-  circle: require("../assets/circle-ci.gif"),
-  dropbox: require("../assets/dropbox.gif"),
-  quickstart: require("../assets/quickstart.png"),
-  substitution: [
-    require("../assets/token-substitution-1.png"),
-    require("../assets/token-substitution-2.png"),
-    require("../assets/token-substitution-3.png")
+  osx: [
+    require("../assets/osx-terminal.png")
+  ],
+  win: [
+    require("../assets/win-env-path-2.png"),
+    require("../assets/win-env-path-3.png"),
+    require("../assets/win-env-path-4.png"),
+    require("../assets/win-env-path-5.png"),
+    require("../assets/win-env-path-6.png"),
+    require("../assets/win-env-path-7.png")
   ]
 };
 //
@@ -56,6 +59,18 @@ const theme = createTheme({
   secondary: "#ff4081",
   important: '#FFC43D'
 });
+
+let last = 0
+const next = (len = 1, off = 0) => {
+  const ret = [last + off, last + len + off]
+  last = last + len + off
+  return ret
+}
+const start = (len = 1) => {
+  last = len
+  return [0, len]
+}
+const same = (len = 1, offset = 1) => [last - offset, last + len - offset]
 
 export default class Presentation extends React.Component {
   render() {
@@ -70,248 +85,237 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={[]} bgColor="black">
-            <Heading size={1} fit caps lineHeight={1} textColor="white">
-              Before we jump ahead
-            </Heading>
-            <Appear>
-              <Heading size={4} caps fit textColor="white">
-                Please install docker
-              </Heading>
-            </Appear>
-            <Appear>
-              <Heading size={4} caps fit textColor="white">
-                Google "Docker Toolbox" and install it
-              </Heading>
-            </Appear>
-          </Slide>
-
-          <Slide bgImage={images.circle} transition={["fade"]}>
-          </Slide>
-
-          <Slide bgImage={images.dropbox} transition={["fade"]}>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Appear fid="1">
-              <Heading size={1} caps fit textColor="secondary">
-                What happened here?
-              </Heading>
-            </Appear>
+            <BlockQuote textColor="white">
+              The goals of the Go project were to eliminate the slowness and clumsiness of software development at
+              Google, and thereby to make the process more productive and scalable. The language was designed by and for
+              people who write—and read and debug and maintain—large software systems.
+            </BlockQuote>
           </Slide>
 
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
             <List>
-              <Appear><ListItem>Circle CI (not affiliated with GitHub) needs access to a user's repositories.</ListItem></Appear>
-              <Appear><ListItem>Circle CI redirects the user agent (chrome) to GitHub, when pressing sign in.</ListItem></Appear>
-              <Appear><ListItem>GitHub asks the user if it is ok to give Circle CI access to his
-                data.</ListItem></Appear>
-              <Appear><ListItem>GitHub redirects the user agent back to Circle CI, passing along a Time Based One Time
-                Password (TOTP).</ListItem></Appear>
-              <Appear><ListItem>Circle CI is now allowed to access GitHub APIs on behalf of the user, using the
-                TOTP.</ListItem></Appear>
+              <Appear><ListItem>Type-safe and memory-safe</ListItem></Appear>
+              <Appear><ListItem>Superb concurrency</ListItem></Appear>
+              <Appear><ListItem>Latency free garbage collection</ListItem></Appear>
+              <Appear><ListItem>High-speed compilation</ListItem></Appear>
+              <Appear><ListItem>Don't use it for UIs (html, cocoa, ...)</ListItem></Appear>
             </List>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              NOTES
-            </Heading>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
-            <Appear fid="1"><Text textColor="white">I was able to decide which repositories Circle CI will have access
-              to.</Text></Appear>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
-            <Appear fid="1"><Text textColor="white">Do not confuse OAuth2 with an authentication method, although it
-              looked like one.</Text></Appear>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
-            <Appear fid="1"><Text textColor="white">Using OAuth2 for authentication through a third party requires
-              in-depth knowledge of OAuth2.</Text></Appear>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
             <Heading size={1} caps fit textColor="secondary">
-              Authentication
+              Who uses it?
             </Heading>
-            <Appear><Heading size={4} textColor="white">Passport control, validating your identity</Heading></Appear>
-            <Appear><Heading size={2} textColor="important">NOT OAuth2!</Heading></Appear>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Authorization
-            </Heading>
-            <Appear><Heading size={4} textColor="white">Customs decide evaluate your properties (bags) and decide if you're allowed to enter</Heading></Appear>
-            <Appear><Heading size={2} textColor="important">NOT OAuth2!</Heading></Appear>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Delegation
-            </Heading>
-            <Appear><Heading size={6} textColor="white">Authentication: Giving your passport to your twin-brother</Heading></Appear>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="secondary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              OpenID Connect: Delegation of authentication!
-            </Heading>
-          </Slide>
-
-          <Slide transition={[]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Delegation
-            </Heading>
-            <Appear><Heading size={6} textColor="white">Authorization: Giving your bags to your twin-brother for customs inspection</Heading></Appear>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="secondary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              OAuth2: Delegation of authorization!
-            </Heading>
-          </Slide>
-
-          <Slide transition={["fade"]} bgColor="black" textColor="secondary">
-            <List>
-              <Appear><ListItem>OAuth2 does not replace authentication nor authorization in your current
-                environment.</ListItem></Appear>
-              <Appear><ListItem>OAuth2 is a framework of work flows and extends your current
-                environment's interoperability.</ListItem></Appear>
-              <Appear><ListItem>OAuth2 makes sense when opening up APIs, otherwise it doesn't.</ListItem></Appear>
-              <Appear><ListItem>Due to it's nature (using opaque short living credentials), OAuth2 introduces a secure
-                flow for mobile clients.</ListItem></Appear>
-            </List>
+            <Appear>
+              <Heading size={6} caps fit textColor="white">
+                Everyone
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} caps fit textColor="white">
+                Docker, Cloud Foundry, Cloudflare, Youtube, Kubernetes, GitHub, Facebook, Twitter, IBM, Netflix,
+                OpenShift ...
+              </Heading>
+            </Appear>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              Let's get hacking...
+            <Heading size={1} fit textColor="white">
+              golang.org/dl
             </Heading>
-          </Slide>
-
-          <Slide transition={["fade"]} bgColor="black" textColor="white">
-            <Heading size={1} caps fit textColor="secondary">
-              ... with ... Hydra?
-            </Heading>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                <div style={{paddingTop: '10px'}}>
+                  git-scm.com/downloads
+                </div>
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                <div style={{paddingTop: '10px'}}>
+                  github.com/arekkas/go-dbg
+                </div>
+              </Heading>
+            </Appear>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <List>
-              <Appear><ListItem>Scalable, low-latency, in memory Access Control, OAuth2, and OpenID Connect
-                layer.</ListItem></Appear>
-              <Appear><ListItem>Runs on top of existing authentication and authorization.</ListItem></Appear>
-              <Appear><ListItem>1700 stars, trending multiple times on hackernews, reddit, GitHub,
-                ...</ListItem></Appear>
-              <Appear><ListItem>Open Source, written in Google Go and supported by the Ludwig-Maximilians-Universität
-                München.</ListItem></Appear>
-              <Appear><ListItem>Fast growing ecosystem and community.</ListItem></Appear>
-              <Appear><ListItem>Written and designed by me.</ListItem></Appear>
-              <Appear><ListItem>Is now a part of cloud native company Ory GmbH.</ListItem></Appear>
-            </List>
-          </Slide>
-
-          <Slide transition={["fade"]}>
-            <Image src={images.quickstart} />
+            <Heading size={1} fit textColor="white">
+              macOS
+            </Heading>
           </Slide>
 
           <CodeSlide
             transition={[]}
-            lang="js"
-            code={require("raw!../assets/install")}
+            lang="bash"
+            code={require("raw!../assets/osx-install")}
             ranges={[
-              { loc: [0, 1], note: 'If you don\'t have git, download the zip package from github.com/ory-am/hydra' },
-              { loc: [2, 3] },
-              { loc: [4, 5], note: 'SYSTEM_SECRET: This is used to encrypt data at rest' },
-              { loc: [4, 5], note: 'DOCKER_IP: Only required when using docker inside a VM' },
+              { loc: [0, 1], note: 'choose a good place to store source, binaries and libraries' },
+              { loc: [2, 3], note: 'when running go get, binaries are installed here - add them to the $PATH' },
+              { loc: [3, 4], note: 'the place where you store go source, binaries and libraries' },
               { loc: [4, 5] },
-              { loc: [8, 9], note: 'Check if the name is correct' },
-              { loc: [11, 12], note: 'Hack: SSH into docker - saves you the trouble of installing the hydra CLI' },
-              { loc: [14, 15], note: 'OAuth2 Client Credentials Flow' },
-              { loc: [16, 17], note: 'OAuth2 Access Token!' },
-              { loc: [18, 19], note: 'hydra token validate --skip-tls-verify <token>' },
-              { loc: [21, 22] },
-              { loc: [22, 26] },
-              { loc: [26, 27] },
-              { loc: [27, 28] },
-              { loc: [28, 29] },
-              { loc: [29, 30] },
-              { loc: [30, 31] },
-              { loc: [18 + 15, 19 + 15] },
-              { loc: [19 + 15, 35 + 15] },
-              { loc: [28 + 15, 29 + 15] },
-              { loc: [29 + 15, 30 + 15] },
-              { loc: [30 + 15, 31 + 15] }
+              { loc: [6, 8] }
             ]}/>
 
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              Live Demo
+          <Slide transition={["fade"]} bgColor="black">
+            <Heading size={1} fit textColor="white">
+              WINDOWS
             </Heading>
           </Slide>
 
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              So what is OpenID Connect, exactly?
-            </Heading>
+          <Slide transition={["fade"]} bgColor="black">
+            <Image src={images.win[0]}/>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="black">
+            <Image src={images.win[1]}/>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="black">
+            <Image src={images.win[2]}/>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="black">
+            <Image src={images.win[3]}/>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="black">
+            <Image src={images.win[4]}/>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="black">
+            <Image src={images.win[5]}/>
           </Slide>
 
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              Scenario: You run a financial app
+          <Slide transition={["fade"]} bgColor="black">
+            <Heading size={1} fit textColor="white">
+              THE IDE
             </Heading>
             <Appear>
-              <Heading size={2} caps>
-                you allow people to sign in via google
+              <Heading size={6} fit textColor="white">
+                I work with IntelliJ CE and the Go plugin
               </Heading>
             </Appear>
           </Slide>
 
-          <Slide bgImage={images.substitution[0]} transition={["fade"]} />
-          <Slide bgImage={images.substitution[1]} transition={["fade"]} />
-          <Slide bgImage={images.substitution[2]} transition={["fade"]} />
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              BASICS
+            </Heading>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            code={require("raw!../assets/go-example")}
+            lang="bash"
+            ranges={[
+              { loc: start(), note: 'download a depdendency' },
+              { loc: next(2), note: 'run the program, ctrl+c to exit'},
+              { loc: next(1, 1), note: 'osx'},
+              { loc: next(1), note: 'win'},
+              { loc: next(2), note: 'run the program from source'},
+              { loc: next(1,1) },
+              { loc: next(2) },
+              { loc: next(2,1) },
+              { loc: next(4,1)  },
+              { loc: next(2,1)  },
+              { loc: next(1,1)  }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/basic.go")}
+            ranges={[
+              { loc: start(), title: 'main.go' },
+              { loc: next(4, 1), note: 'import "fmt"' },
+              { loc: next(1,1), note: 'void main()' },
+              { loc: next(2) },
+              { loc: same(1), note: 'foo := 5' },
+              { loc: same(1), note: 'foo := int64(5)' },
+              { loc: same(1), note: 'var foo int64 = 5' },
+              { loc: next(1), note: 'foo=25' },
+              { loc: next(4, 1) },
+              { loc: next(2, 1), note: 'barkeeper' },
+              { loc: next(1, 2) },
+              { loc: next(5) }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/basic_test.go")}
+            ranges={[
+              { loc: start(), title: 'main_test.go' },
+              { loc: next(1, 1) },
+              { loc: next(1, 1) },
+              { loc: next(4) },
+              { loc: same(4, 4), note: 'github.com/stretchr/testify' },
+              { loc: next(4, 1) },
+              { loc: next(5, 2) }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="bash"
+            code={require("raw!../assets/http-example")}
+            ranges={[
+              { loc: start() },
+              { loc: next() },
+              { loc: next() },
+              { loc: next() },
+              { loc: next() }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/http.go")}
+            ranges={[
+              { loc: start(), title: 'main.go' },
+              { loc: next(1,2) },
+              { loc: next() },
+              { loc: next() },
+              { loc: next() },
+              { loc: next() },
+              { loc: next(1,2) },
+              { loc: next() },
+              { loc: next() },
+              { loc: next() },
+              { loc: next(1,1) },
+              { loc: next(1,2) },
+              { loc: next(), note: '[]byte("hi!")'},
+              { loc: next(1,2) },
+              { loc: next(), note: 'encoder requires exported fields (upper case), json convention is lower case' },
+              { loc: next() },
+              { loc: next(1,2) },
+              { loc: next(), note: 'r.HandleFunc("/hi/{greeting}", greeting)' },
+              { loc: next(1,1), note: 'resp := new(response)' },
+              { loc: next(), note: 'our library (next slide)' },
+              { loc: next() },
+              { loc: next(1,2) },
+              { loc: next(4) },
+              { loc: next() }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/http_helper.go")}
+            ranges={[
+              { loc: start(), title: 'helper/time.go' },
+              { loc: next(3, 3), note: 'Upper case = global, lower case = local'}
+            ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
-              ID Token
+              YOUR TURN
             </Heading>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Features
-            </Heading>
-            <List>
-              <Appear><ListItem>Delegate Authentication!</ListItem></Appear>
-              <Appear><ListItem>Flows for services, web apps and mobile apps.</ListItem></Appear>
-              <Appear><ListItem>Various interactions: Force password confirm, force 2FA, ...</ListItem></Appear>
-            </List>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              Questions?
-            </Heading>
-            <List>
-              <Appear><ListItem>Read Hydra Guide and API Docs</ListItem></Appear>
-              <Appear><ListItem>Ask in Mailinglist</ListItem></Appear>
-              <Appear><ListItem>Ask in Chat</ListItem></Appear>
-              <Appear><ListItem>Create issue on GitHub</ListItem></Appear>
-            </List>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Thank you for your time!
-            </Heading>
-            <List textColor="white">
-              <Appear><ListItem>Twitter: @_aeneasr</ListItem></Appear>
-              <Appear><ListItem>GitHub: @arekkas</ListItem></Appear>
-              <Appear><ListItem>Web: aeneas.io</ListItem></Appear>
-            </List>
+            <Appear>
+              <Heading size={6} fit caps textColor="secondary">
+                TRY STUFF
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                tour.golang.org
+              </Heading>
+            </Appear>
           </Slide>
 
         </Deck>
@@ -319,7 +323,6 @@ export default class Presentation extends React.Component {
     );
   }
 }
-
 
 //
 // <Slide transition={["zoom"]} bgColor="primary">
