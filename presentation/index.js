@@ -90,10 +90,22 @@ export default class Presentation extends React.Component {
             </Appear>
           </Slide>
 
-          <Slide bgImage={images.circle} transition={["fade"]}>
+          <Slide transition={[]} bgColor="black">
+            <Heading size={1} fit caps lineHeight={1} textColor="white">
+              OAUTH 2 APP
+            </Heading>
           </Slide>
 
           <Slide bgImage={images.dropbox} transition={["fade"]}>
+          </Slide>
+
+          <Slide transition={[]} bgColor="black">
+            <Heading size={1} fit caps lineHeight={1} textColor="white">
+              OAUTH 2
+            </Heading>
+          </Slide>
+
+          <Slide bgImage={images.circle} transition={["fade"]}>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
@@ -202,6 +214,7 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit textColor="secondary">
               ... with ... Hydra?
             </Heading>
+            <Appear><Heading size={6} textColor="white">Run your own OAuth2 infrastructure in minutes</Heading></Appear>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
