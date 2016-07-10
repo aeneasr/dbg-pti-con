@@ -1,34 +1,15 @@
 // Import React
-import React from "react";
+import React from 'react'
+import { Appear, BlockQuote, Deck, Heading, Image, ListItem, List, Slide, Spectacle } from 'spectacle'
+import CodeSlide from 'spectacle-code-slide'
+import preloader from 'spectacle/lib/utils/preloader'
+import createTheme from 'spectacle/lib/themes/default'
 
 // Import Spectacle Core tags
-import {
-  Appear,
-  BlockQuote,
-  Cite,
-  CodePane,
-  Deck,
-  Fill,
-  Heading,
-  Image,
-  Layout,
-  Link,
-  ListItem,
-  List,
-  Markdown,
-  Quote,
-  Slide,
-  Spectacle,
-  Text
-} from "spectacle";
-
-import CodeSlide from 'spectacle-code-slide';
 
 // Import image preloader util
-import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
-import createTheme from "spectacle/lib/themes/default";
 
 // Import custom component
 // import Interactive from "../assets/interactive";
@@ -39,17 +20,10 @@ require("spectacle/lib/themes/default/index.css");
 
 //
 const images = {
-  osx: [
-    require("../assets/osx-terminal.png")
-  ],
-  win: [
-    require("../assets/win-env-path-2.png"),
-    require("../assets/win-env-path-3.png"),
-    require("../assets/win-env-path-4.png"),
-    require("../assets/win-env-path-5.png"),
-    require("../assets/win-env-path-6.png"),
-    require("../assets/win-env-path-7.png")
-  ]
+  java: require('../assets/java-gc.png'),
+  go: require('../assets/go-gc.png'),
+  gocompile: require('../assets/gocompile.png'),
+  clojure: require('../assets/clojure.png'),
 };
 //
 preloader(images);
@@ -80,7 +54,7 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="secondary">
             <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Google Go (Golang)
+              Google Go
             </Heading>
           </Slide>
 
@@ -90,16 +64,6 @@ export default class Presentation extends React.Component {
               Google, and thereby to make the process more productive and scalable. The language was designed by and for
               people who write—and read and debug and maintain—large software systems.
             </BlockQuote>
-          </Slide>
-
-          <Slide transition={["fade"]} bgColor="black" textColor="secondary">
-            <List>
-              <Appear><ListItem>Type-safe and memory-safe</ListItem></Appear>
-              <Appear><ListItem>Superb concurrency</ListItem></Appear>
-              <Appear><ListItem>Latency free garbage collection</ListItem></Appear>
-              <Appear><ListItem>High-speed compilation</ListItem></Appear>
-              <Appear><ListItem>Don't use it for UIs (html, cocoa, ...)</ListItem></Appear>
-            </List>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
@@ -120,200 +84,174 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} fit textColor="white">
-              golang.org/dl
-            </Heading>
-            <Appear>
-              <Heading size={6} fit textColor="white">
-                <div style={{paddingTop: '10px'}}>
-                  git-scm.com/downloads
-                </div>
-              </Heading>
-            </Appear>
-            <Appear>
-              <Heading size={6} fit textColor="white">
-                <div style={{paddingTop: '10px'}}>
-                  github.com/arekkas/go-dbg
-                </div>
-              </Heading>
-            </Appear>
+            <BlockQuote textColor="white">"How We Went from 30 Servers to 2: Go" - iron.io</BlockQuote>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} fit textColor="white">
-              macOS
+            <BlockQuote textColor="white">"How We Moved Our API From Ruby to Go and Saved Our Sanity" -
+              parse.com</BlockQuote>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <BlockQuote textColor="white">"Java is the COBOL of my generation and Go is its successor" -
+              influxdata.com (InfluxDB)</BlockQuote>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              My experience with Go (2+ years)
             </Heading>
           </Slide>
 
-          <CodeSlide
-            transition={[]}
-            lang="bash"
-            code={require("raw!../assets/osx-install")}
-            ranges={[
-              { loc: [0, 1], note: 'choose a good place to store source, binaries and libraries' },
-              { loc: [2, 3], note: 'when running go get, binaries are installed here - add them to the $PATH' },
-              { loc: [3, 4], note: 'the place where you store go source, binaries and libraries' },
-              { loc: [4, 5] },
-              { loc: [6, 8] }
-            ]}/>
+          <Slide transition={["fade"]} bgColor="black" textColor="secondary">
+            <List>
+              <Appear><ListItem>Incredible garbage collection</ListItem></Appear>
+              <Appear><ListItem>Superb concurrency</ListItem></Appear>
+              <Appear><ListItem>Awesome tooling, ease of use</ListItem></Appear>
+              <Appear><ListItem>Go forces you to think about errors</ListItem></Appear>
+              <Appear><ListItem>Incredibly fast compilation</ListItem></Appear>
+              <Appear><ListItem>Low memory and CPU footprint</ListItem></Appear>
+              <Appear><ListItem>Well designed standard library and API with close to zero BC breaks</ListItem></Appear>
+              <Appear><ListItem>Runs everywhere (mainframes, android and ios included)</ListItem></Appear>
+              <Appear><ListItem>Dependency management is tricky, but tooling has become much better</ListItem></Appear>
+            </List>
+          </Slide>
 
-          <Slide transition={["fade"]} bgColor="black">
-            <Heading size={1} fit textColor="white">
-              WINDOWS
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Garbage Collection
             </Heading>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[0]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[1]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[2]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[3]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[4]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[5]}/>
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" style={{marginTop: "-150px"}} src={images.java}/>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor="black">
-            <Heading size={1} fit textColor="white">
-              THE IDE
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" style={{marginTop: "-150px"}} src={images.go}/>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Concurrency
             </Heading>
             <Appear>
               <Heading size={6} fit textColor="white">
-                I work with IntelliJ CE and the Go plugin
+                Say goodbye to λ, promise and other nightmares
               </Heading>
             </Appear>
           </Slide>
 
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              BASICS
-            </Heading>
-          </Slide>
-
           <CodeSlide
             transition={[]}
-            code={require("raw!../assets/go-example")}
-            lang="bash"
-            ranges={[
-              { loc: start(), note: 'download a depdendency' },
-              { loc: next(2), note: 'run the program, ctrl+c to exit'},
-              { loc: next(1, 1), note: 'osx'},
-              { loc: next(1), note: 'win'},
-              { loc: next(2), note: 'run the program from source'},
-              { loc: next(1,1) },
-              { loc: next(2) },
-              { loc: next(2,1) },
-              { loc: next(4,1)  },
-              { loc: next(2,1)  },
-              { loc: next(1,1)  }
-            ]}/>
-
-          <CodeSlide
-            transition={[]}
+            code={require("raw!../assets/go-channels")}
             lang="go"
-            code={require("raw!../assets/basic.go")}
-            ranges={[
-              { loc: start(), title: 'main.go' },
-              { loc: next(4, 1), note: 'import "fmt"' },
-              { loc: next(1,1), note: 'void main()' },
-              { loc: next(2) },
-              { loc: same(1), note: 'foo := 5' },
-              { loc: same(1), note: 'foo := int64(5)' },
-              { loc: same(1), note: 'var foo int64 = 5' },
-              { loc: next(1), note: 'foo=25' },
-              { loc: next(4, 1) },
-              { loc: next(2, 1), note: 'barkeeper' },
-              { loc: next(1, 2) },
-              { loc: next(5) }
-            ]}/>
-
-          <CodeSlide
-            transition={[]}
-            lang="go"
-            code={require("raw!../assets/basic_test.go")}
-            ranges={[
-              { loc: start(), title: 'main_test.go' },
-              { loc: next(1, 1) },
-              { loc: next(1, 1) },
-              { loc: next(4) },
-              { loc: same(4, 4), note: 'github.com/stretchr/testify' },
-              { loc: next(4, 1) },
-              { loc: next(5, 2) }
-            ]}/>
-
-          <CodeSlide
-            transition={[]}
-            lang="bash"
-            code={require("raw!../assets/http-example")}
             ranges={[
               { loc: start() },
-              { loc: next() },
-              { loc: next() },
-              { loc: next() },
-              { loc: next() }
-            ]}/>
-
-          <CodeSlide
-            transition={[]}
-            lang="go"
-            code={require("raw!../assets/http.go")}
-            ranges={[
-              { loc: start(), title: 'main.go' },
-              { loc: next(1,2) },
-              { loc: next() },
-              { loc: next() },
-              { loc: next() },
-              { loc: next() },
-              { loc: next(1,2) },
-              { loc: next() },
-              { loc: next() },
-              { loc: next() },
               { loc: next(1,1) },
-              { loc: next(1,2) },
-              { loc: next(), note: '[]byte("hi!")'},
-              { loc: next(1,2) },
-              { loc: next(), note: 'encoder requires exported fields (upper case), json convention is lower case' },
-              { loc: next() },
-              { loc: next(1,2) },
-              { loc: next(), note: 'r.HandleFunc("/hi/{greeting}", greeting)' },
-              { loc: next(1,1), note: 'resp := new(response)' },
-              { loc: next(), note: 'our library (next slide)' },
-              { loc: next() },
-              { loc: next(1,2) },
-              { loc: next(4) },
-              { loc: next() }
+              { loc: next(1,1) },
+              { loc: next(1) }
             ]}/>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Tooling
+            </Heading>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                Developers are humans, too - really!
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                Great UX = Happy Devs = Better software faster
+              </Heading>
+            </Appear>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              One dependency to rule them all
+            </Heading>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                go1.6.2.msi
+              </Heading>
+            </Appear>
+          </Slide>
 
           <CodeSlide
             transition={[]}
-            lang="go"
-            code={require("raw!../assets/http_helper.go")}
+            code={require("raw!../assets/go-basics")}
+            lang="bash"
             ranges={[
-              { loc: start(), title: 'helper/time.go' },
-              { loc: next(3, 3), note: 'Upper case = global, lower case = local'}
+              { loc: start(), title: 'Go tooling' },
+              { loc: next(2) },
+              { loc: next(1,1) },
+              { loc: next(2,1) },
+              { loc: next(1,1) },
+              { loc: next(1,1) },
+              { loc: next(2,1) },
+              { loc: next(2,1) },
+              { loc: next(4,1) },
+              { loc: next(2,1) },
+              { loc: next(1,1) },
+              { loc: next(1,1) }
+            ]}/>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Compile time
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" src={images.clojure} />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" src={images.gocompile} />
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            code={require("raw!../assets/go-compile")}
+            lang="bash"
+            ranges={[
+              { loc: start(3) },
+              { loc: next(5, 1) }
             ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
-              YOUR TURN
+              TOMORROW
             </Heading>
             <Appear>
-              <Heading size={6} fit caps textColor="secondary">
-                TRY STUFF
+              <Heading size={6} caps fit textColor="secondary">
+                LEARN GO
               </Heading>
             </Appear>
+          </Slide>
+
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Can't wait?
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} fit textColor="white">
+              play.golang.org
+            </Heading>
             <Appear>
               <Heading size={6} fit textColor="white">
                 tour.golang.org
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                gobyexample.com
               </Heading>
             </Appear>
           </Slide>

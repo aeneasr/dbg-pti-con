@@ -1,0 +1,9 @@
+$ find . -name '*.go' | xargs wc -l
+[...]
+505282 total
+
+$ time go build
+
+real    0m4.394s
+user    0m5.616s
+sys     0m0.649s

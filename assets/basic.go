@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 func main() {
 	var foo int
 	foo = 5
-	fmt.Printf("foo=%d / 5\n", foo * 5)
+	fmt.Printf("foo=%d / 5\n", foo*5)
 
 	keeper, err := bar(false)
 	if err != nil {
