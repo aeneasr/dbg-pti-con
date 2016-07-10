@@ -126,15 +126,27 @@ export default class Presentation extends React.Component {
             <Appear>
               <Heading size={6} fit textColor="white">
                 <div style={{paddingTop: '10px'}}>
-                  git-scm.com/downloads
+                  github.com/arekkas/go-dbg
                 </div>
               </Heading>
             </Appear>
             <Appear>
               <Heading size={6} fit textColor="white">
                 <div style={{paddingTop: '10px'}}>
-                  github.com/arekkas/go-dbg
+                  git-scm.com/downloads
                 </div>
+              </Heading>
+            </Appear>
+          </Slide>
+
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} fit textColor="white">
+              Can't install things on your system?
+            </Heading>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                play.golang.org
               </Heading>
             </Appear>
           </Slide>
@@ -163,24 +175,16 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[0]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[1]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[2]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[3]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[4]}/>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="black">
-            <Image src={images.win[5]}/>
-          </Slide>
+          <CodeSlide
+            transition={[]}
+            lang="bash"
+            code={require("raw!../assets/win-install")}
+            ranges={[
+              { loc: [0, 1] },
+              { loc: [1, 2] },
+              { loc: [3, 4] },
+              { loc: [5, 7] }
+            ]}/>
 
           <Slide transition={["fade"]} bgColor="black">
             <Heading size={1} fit textColor="white">
@@ -311,9 +315,22 @@ export default class Presentation extends React.Component {
                 TRY STUFF
               </Heading>
             </Appear>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
             <Appear>
               <Heading size={6} fit textColor="white">
                 tour.golang.org
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                play.golang.org
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                gobyexample.com
               </Heading>
             </Appear>
           </Slide>
