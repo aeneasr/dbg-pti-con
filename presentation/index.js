@@ -162,34 +162,24 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit textColor="secondary">
               Authorization
             </Heading>
-            <Appear><Heading size={4} textColor="white">Customs decide evaluate your properties (bags) and decide if you're allowed to enter</Heading></Appear>
-            <Appear><Heading size={2} textColor="important">NOT OAuth2!</Heading></Appear>
+            <Appear><Heading size={4} textColor="white">Is Peter allowed to use the printer?</Heading></Appear>
+            <Appear><Heading size={2} textColor="important">NOT OAuth2...?</Heading></Appear>
           </Slide>
 
           <Slide transition={[]} bgColor="black">
             <Heading size={1} caps fit textColor="secondary">
-              Delegation
+              Delegation of Authorization
             </Heading>
-            <Appear><Heading size={6} textColor="white">Authentication: Giving your passport to your twin-brother</Heading></Appear>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="secondary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              OpenID Connect: Delegation of authentication!
-            </Heading>
+            <Appear><Heading size={6} textColor="white">Paying with a stranger's money at a point of sale</Heading></Appear>
+            <Appear><Heading size={2} textColor="important">OAuth2!</Heading></Appear>
           </Slide>
 
           <Slide transition={[]} bgColor="black">
             <Heading size={1} caps fit textColor="secondary">
-              Delegation
+              Delegation of Authentication
             </Heading>
-            <Appear><Heading size={6} textColor="white">Authorization: Giving your bags to your twin-brother for customs inspection</Heading></Appear>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="secondary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              OAuth2: Delegation of authorization!
-            </Heading>
+            <Appear><Heading size={6} textColor="white">Giving your passport to your twin-brother</Heading></Appear>
+            <Appear><Heading size={2} textColor="important">OpenID Connect!</Heading></Appear>
           </Slide>
 
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
@@ -203,6 +193,33 @@ export default class Presentation extends React.Component {
                 flow for mobile clients.</ListItem></Appear>
             </List>
           </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Why is OAuth2 so popular?
+            </Heading>
+          </Slide>
+
+          <Slide transition={[]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Peer reviewed standard by the IETF
+            </Heading>
+            <Appear><Heading size={6} textColor="white">
+              Sepcified by Google, Microsoft, Deutsche Telekom, ...
+            </Heading></Appear>
+            <Appear><Heading size={2} textColor="important">
+              Ease of use, but secure!
+            </Heading></Appear>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/passport")}
+            ranges={[
+              { loc: [0, 6], title: 'Ease of use' },
+              { loc: [7, 8] },
+            ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
@@ -236,8 +253,8 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit textColor="white">
               It's really fast
             </Heading>
+            <Appear><Heading size={6} textColor="white">single instance on 2013 macbook, token validation</Heading></Appear>
             <Appear><Heading size={6} textColor="white">~600 requests / sec</Heading></Appear>
-            <Appear><Heading size={6} textColor="white">single instance, token validation</Heading></Appear>
           </Slide>
 
           <Slide transition={["fade"]}>
@@ -281,7 +298,7 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
-              So what is OpenID Connect, exactly?
+              And what is OpenID Connect, exactly?
             </Heading>
           </Slide>
 
