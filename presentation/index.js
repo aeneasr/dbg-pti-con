@@ -113,7 +113,7 @@ export default class Presentation extends React.Component {
               <Appear><ListItem>Low memory and CPU footprint</ListItem></Appear>
               <Appear><ListItem>Well designed standard library and API with close to zero BC breaks</ListItem></Appear>
               <Appear><ListItem>Runs everywhere (mainframes, android and ios included)</ListItem></Appear>
-              <Appear><ListItem>Dependency management is tricky, but tooling has become much better</ListItem></Appear>
+              <Appear><ListItem>You can not compile a program without it's dependencies</ListItem></Appear>
             </List>
           </Slide>
 
