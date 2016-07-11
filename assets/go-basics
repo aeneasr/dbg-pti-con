@@ -1,13 +1,9 @@
 $ go get github.com/arekkas/go-dbg
 $ go-dbg
-You made it!
-
-$ cd $GOPATH/src/github.com/arekkas/go-dbg
+hello world
 
 $ go run main.go
-You made it!
-
-$ go build
+hello world
 
 $ go install
 

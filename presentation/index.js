@@ -123,25 +123,23 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
             <List>
-              <Appear><ListItem>It's Open Source</ListItem></Appear>
               <Appear><ListItem>It has a great community</ListItem></Appear>
-              <Appear><ListItem>Close to zero-latency garbage collection</ListItem></Appear>
-              <Appear><ListItem>Superb concurrency</ListItem></Appear>
-              <Appear><ListItem>Strengths of a statically typed language</ListItem></Appear>
               <Appear><ListItem>Awesome tooling, ease of use</ListItem></Appear>
+              <Appear><ListItem>Incredibly fast compilation</ListItem></Appear>
+              <Appear><ListItem>Low memory and CPU footprint</ListItem></Appear>
+              <Appear><ListItem>Superb concurrency</ListItem></Appear>
+              <Appear><ListItem>Close to zero-latency garbage collection</ListItem></Appear>
               <Appear><ListItem>Go forces you to think about errors</ListItem></Appear>
             </List>
           </Slide>
 
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
             <List>
-              <Appear><ListItem>Incredibly fast compilation</ListItem></Appear>
-              <Appear><ListItem>Low memory and CPU footprint</ListItem></Appear>
+              <Appear><ListItem>Strengths of a statically typed language</ListItem></Appear>
               <Appear><ListItem>Well designed standard library and API with close to zero backwards compatibility breaks</ListItem></Appear>
               <Appear><ListItem>Runs everywhere (windows, mainframes, android and ios included)</ListItem></Appear>
               <Appear><ListItem>You can not compile a program without it's dependencies fully resolved</ListItem></Appear>
-              <Appear><ListItem>Very strict language built around 100% dependency management</ListItem></Appear>
-              <Appear><ListItem>Unused declarations cause compile errors</ListItem></Appear>
+              <Appear><ListItem>Very strict language</ListItem></Appear>
             </List>
           </Slide>
 
@@ -248,9 +246,7 @@ export default class Presentation extends React.Component {
             ranges={[
               { loc: start(), title: 'Go tooling' },
               { loc: next(2) },
-              { loc: next(1,1) },
               { loc: next(2,1) },
-              { loc: next(1,1) },
               { loc: next(1,1) },
               { loc: next(2,1) },
               { loc: next(2,1) },
