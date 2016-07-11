@@ -1,12 +1,15 @@
 package main
 
 import "testing"
+import "github.com/stretchr/testify/assert"
 
 func TestBar(t *testing.T) {
 	_, err := bar(false)
 	if err == nil {
 		t.Error("Expected an error")
 	}
+
+	assert.NotNil(t, err)
 
 	ret, _ := bar(true)
 	if ret != "keeper" {

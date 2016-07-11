@@ -247,11 +247,49 @@ export default class Presentation extends React.Component {
             ranges={[
               { loc: start(), title: 'main_test.go' },
               { loc: next(1, 1) },
+                { loc: next(1) },
               { loc: next(1, 1) },
               { loc: next(4) },
               { loc: same(4, 4), note: 'github.com/stretchr/testify' },
+                { loc: next(1,1) },
               { loc: next(4, 1) },
               { loc: next(5, 2) }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/structs.go")}
+            ranges={[
+              { loc: start(), title: 'Structs' },
+              { loc: next(1, 1) },
+              { loc: next(4, 1) },
+              { loc: next(3, 1) },
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/methods.go")}
+            ranges={[
+              { loc: start(), title: 'Methods' },
+              { loc: next(4, 1) },
+              { loc: next(3, 1) },
+              { loc: next(3, 1) },
+              { loc: next(4, 1) },
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/interface.go")}
+            ranges={[
+              { loc: start(), title: 'Interfaces' },
+              { loc: next(1, 1) },
+              { loc: next(3, 1) },
+              { loc: next(3, 1) },
+              { loc: next(5, 1) },
+              { loc: next(4, 1) }
             ]}/>
 
           <CodeSlide
