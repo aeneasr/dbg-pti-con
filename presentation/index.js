@@ -1,6 +1,6 @@
 // Import React
 import React from 'react'
-import { Appear, BlockQuote, Deck, Heading, Image, ListItem, List, Slide, Spectacle } from 'spectacle'
+import { Appear, Text, BlockQuote, Deck, Heading, Image, ListItem, List, Slide, Spectacle } from 'spectacle'
 import CodeSlide from 'spectacle-code-slide'
 import preloader from 'spectacle/lib/utils/preloader'
 import createTheme from 'spectacle/lib/themes/default'
@@ -21,7 +21,8 @@ require("spectacle/lib/themes/default/index.css");
 //
 const images = {
   java: require('../assets/java-gc.png'),
-  go: require('../assets/go-gc.png'),
+  go1: require('../assets/go-15.png'),
+  go2: require('../assets/go-16.png'),
   gocompile: require('../assets/gocompile.png'),
   clojure: require('../assets/clojure.png'),
 };
@@ -62,8 +63,15 @@ export default class Presentation extends React.Component {
             <BlockQuote textColor="white">
               The goals of the Go project were to eliminate the slowness and clumsiness of software development at
               Google, and thereby to make the process more productive and scalable. The language was designed by and for
-              people who write—and read and debug and maintain—large software systems.
+              people who write—and read and debug and maintain—large software systems.<br />
+              <i>Rob Pike, Google</i>
             </BlockQuote>
+          </Slide>
+
+          <Slide transition={[]} bgColor="black">
+            <Text textColor="white">
+              Go was developed by a team of computer scientists at Google to help Google solve its (BIG) engineering problems in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson.
+            </Text>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
@@ -97,6 +105,16 @@ export default class Presentation extends React.Component {
               influxdata.com (InfluxDB)</BlockQuote>
           </Slide>
 
+          <CodeSlide
+            transition={[]}
+            code={require("raw!../assets/hello-world")}
+            lang="go"
+            ranges={[
+              { loc: start() },
+              { loc: next(1,1) },
+              { loc: next(3,1) },
+            ]}/>
+
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="secondary">
               My experience with Go (2+ years)
@@ -105,17 +123,50 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["fade"]} bgColor="black" textColor="secondary">
             <List>
-              <Appear><ListItem>Incredible garbage collection</ListItem></Appear>
+              <Appear><ListItem>It's Open Source</ListItem></Appear>
+              <Appear><ListItem>It has a great community</ListItem></Appear>
+              <Appear><ListItem>Close to zero-latency garbage collection</ListItem></Appear>
               <Appear><ListItem>Superb concurrency</ListItem></Appear>
+              <Appear><ListItem>Strengths of a statically typed language</ListItem></Appear>
               <Appear><ListItem>Awesome tooling, ease of use</ListItem></Appear>
               <Appear><ListItem>Go forces you to think about errors</ListItem></Appear>
-              <Appear><ListItem>Incredibly fast compilation</ListItem></Appear>
-              <Appear><ListItem>Low memory and CPU footprint</ListItem></Appear>
-              <Appear><ListItem>Well designed standard library and API with close to zero BC breaks</ListItem></Appear>
-              <Appear><ListItem>Runs everywhere (mainframes, android and ios included)</ListItem></Appear>
-              <Appear><ListItem>You can not compile a program without it's dependencies</ListItem></Appear>
             </List>
           </Slide>
+
+          <Slide transition={["fade"]} bgColor="black" textColor="secondary">
+            <List>
+              <Appear><ListItem>Incredibly fast compilation</ListItem></Appear>
+              <Appear><ListItem>Low memory and CPU footprint</ListItem></Appear>
+              <Appear><ListItem>Well designed standard library and API with close to zero backwards compatibility breaks</ListItem></Appear>
+              <Appear><ListItem>Runs everywhere (windows, mainframes, android and ios included)</ListItem></Appear>
+              <Appear><ListItem>You can not compile a program without it's dependencies fully resolved</ListItem></Appear>
+              <Appear><ListItem>Very strict language built around 100% dependency management</ListItem></Appear>
+              <Appear><ListItem>Unused declarations cause compile errors</ListItem></Appear>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Compile time
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" src={images.clojure} />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" src={images.gocompile} />
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            code={require("raw!../assets/go-compile")}
+            lang="bash"
+            ranges={[
+              { loc: start(3) },
+              { loc: next(5, 1) }
+            ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="secondary">
@@ -128,7 +179,11 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <Image width="100%" style={{marginTop: "-150px"}} src={images.go}/>
+            <Image width="100%" style={{marginTop: "-150px"}} src={images.go1}/>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Image width="100%" style={{marginTop: "-150px"}} src={images.go2}/>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
@@ -137,9 +192,15 @@ export default class Presentation extends React.Component {
             </Heading>
             <Appear>
               <Heading size={6} fit textColor="white">
-                Say goodbye to λ, promise and other nightmares
+                Say goodbye to λ, promise and other nightmares ...
               </Heading>
             </Appear>
+            <Appear>
+              <Heading size={6} fit textColor="white">
+                ... callbackhell.com
+              </Heading>
+            </Appear>
+
           </Slide>
 
           <CodeSlide
@@ -200,35 +261,17 @@ export default class Presentation extends React.Component {
             ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Compile time
-            </Heading>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Image width="100%" src={images.clojure} />
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Image width="100%" src={images.gocompile} />
-          </Slide>
-
-          <CodeSlide
-            transition={[]}
-            code={require("raw!../assets/go-compile")}
-            lang="bash"
-            ranges={[
-              { loc: start(3) },
-              { loc: next(5, 1) }
-            ]}/>
-
-          <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
               TOMORROW
             </Heading>
             <Appear>
               <Heading size={6} caps fit textColor="secondary">
                 LEARN GO
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={6} caps fit textColor="white">
+                Bring your laptop!
               </Heading>
             </Appear>
           </Slide>
@@ -254,6 +297,12 @@ export default class Presentation extends React.Component {
                 gobyexample.com
               </Heading>
             </Appear>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Q&A
+            </Heading>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
