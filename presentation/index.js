@@ -42,6 +42,7 @@ const images = {
   circle: require("../assets/circle-ci.gif"),
   dropbox: require("../assets/dropbox.gif"),
   quickstart: require("../assets/quickstart.png"),
+  siege: require("../assets/siege.png"),
   substitution: [
     require("../assets/token-substitution-1.png"),
     require("../assets/token-substitution-2.png"),
@@ -238,14 +239,15 @@ export default class Presentation extends React.Component {
             <List>
               <Appear><ListItem>Scalable, low-latency, in memory Access Control, OAuth2, and OpenID Connect
                 layer.</ListItem></Appear>
+              <Appear><ListItem>Secure by design: Encrypt at rest and in transport.</ListItem></Appear>
+              <Appear><ListItem>Secure by design: Mitigate database penetration attack vectors.</ListItem></Appear>
               <Appear><ListItem>Runs on top of existing authentication and authorization.</ListItem></Appear>
               <Appear><ListItem>1700 stars, trending multiple times on hackernews, reddit, GitHub,
                 ...</ListItem></Appear>
               <Appear><ListItem>Open Source, written in Google Go and supported by the Ludwig-Maximilians-Universität
-                München.</ListItem></Appear>
+                München (placed 29th world-wide).</ListItem></Appear>
               <Appear><ListItem>Fast growing ecosystem and community.</ListItem></Appear>
-              <Appear><ListItem>Written and designed by me.</ListItem></Appear>
-              <Appear><ListItem>Is now a part of cloud native company Ory GmbH.</ListItem></Appear>
+              <Appear><ListItem>Written and designed by me and is now a part of cloud native company Ory GmbH.</ListItem></Appear>
             </List>
           </Slide>
 
@@ -255,10 +257,22 @@ export default class Presentation extends React.Component {
             </Heading>
             <Appear><Heading size={6} textColor="white">single instance on 2013 macbook, token validation</Heading></Appear>
             <Appear><Heading size={6} textColor="white">~600 requests / sec</Heading></Appear>
+            <Appear><Heading size={6} textColor="white">Siege: 60% CPU time - Hydra: 30% CPU time</Heading></Appear>
+            <Appear><Heading size={6} textColor="white">Memory footprint: 12,3MB (~10000 active tokens)</Heading></Appear>
           </Slide>
 
           <Slide transition={["fade"]}>
-            <Image src={images.quickstart} />
+            <Image width="100%" src={images.siege} />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Enough talking!
+            </Heading>
+          </Slide>
+
+          <Slide transition={["fade"]}>
+            <Image width="100%" src={images.quickstart} />
           </Slide>
 
           <CodeSlide
@@ -292,14 +306,58 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
+              This was: Client Credentials Flow
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              Now: Authorize Code Flow
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
               Live Demo
             </Heading>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
-              And what is OpenID Connect, exactly?
+              OpenID Connect: The ID Token
             </Heading>
+            <Appear>
+              <Heading size={2} caps>
+                JSON Web Tokens?
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={2} textColor="white">
+                jwt.io
+              </Heading>
+            </Appear>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Features
+            </Heading>
+            <List>
+              <Appear><ListItem>Delegate Authentication!</ListItem></Appear>
+              <Appear><ListItem>Flows for services, web apps and mobile apps.</ListItem></Appear>
+              <Appear><ListItem>Various interactions: Force password confirm, force 2FA, ...</ListItem></Appear>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              OIDC neutralizes a Common Pitfall
+            </Heading>
+            <Appear>
+              <Heading size={2} caps>
+                Using OAuth2 for Authentication
+              </Heading>
+            </Appear>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
@@ -316,23 +374,6 @@ export default class Presentation extends React.Component {
           <Slide bgImage={images.substitution[0]} transition={["fade"]} />
           <Slide bgImage={images.substitution[1]} transition={["fade"]} />
           <Slide bgImage={images.substitution[2]} transition={["fade"]} />
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="white">
-              ID Token
-            </Heading>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="black">
-            <Heading size={1} caps fit textColor="secondary">
-              Features
-            </Heading>
-            <List>
-              <Appear><ListItem>Delegate Authentication!</ListItem></Appear>
-              <Appear><ListItem>Flows for services, web apps and mobile apps.</ListItem></Appear>
-              <Appear><ListItem>Various interactions: Force password confirm, force 2FA, ...</ListItem></Appear>
-            </List>
-          </Slide>
 
           <Slide transition={["zoom"]} bgColor="black">
             <Heading size={1} caps fit textColor="white">
