@@ -218,7 +218,7 @@ export default class Presentation extends React.Component {
             code={require("raw!../assets/passport")}
             ranges={[
               { loc: [0, 6], title: 'Ease of use' },
-              { loc: [7, 8] },
+              { loc: [7, 8] }
             ]}/>
 
           <Slide transition={["zoom"]} bgColor="black">
