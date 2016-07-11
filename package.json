@@ -17,9 +17,7 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "spectacle": "1.0.4",
-    "spectacle-code-slide": "^0.1.10"
-  },
-  "devDependencies": {
+    "spectacle-code-slide": "^0.1.10",
     "autoprefixer-core": "^6.0.1",
     "babel-core": "^6.4.0",
     "babel-eslint": "^5.0.0-beta6",
