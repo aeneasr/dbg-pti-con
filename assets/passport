@@ -5,4 +5,4 @@ var oauth2 = require('simple-oauth2')({
   authorizationPath: '/oauth/authorize'
 });
 
-oauth2.getToken()
+oauth2.clientCredentials.getToken()

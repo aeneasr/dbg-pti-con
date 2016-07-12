@@ -93,6 +93,22 @@ export default class Presentation extends React.Component {
 
           <Slide transition={[]} bgColor="black">
             <Heading size={1} fit caps lineHeight={1} textColor="white">
+              Pair programming
+            </Heading>
+            <Appear>
+              <Heading size={4} caps fit textColor="white">
+                Driver (tactical) & Navigator (strategic)
+              </Heading>
+            </Appear>
+            <Appear>
+              <Heading size={4} caps fit textColor="white">
+                Switch frequently
+              </Heading>
+            </Appear>
+          </Slide>
+
+          <Slide transition={[]} bgColor="black">
+            <Heading size={1} fit caps lineHeight={1} textColor="white">
               OAUTH 2 APP
             </Heading>
           </Slide>
@@ -102,7 +118,7 @@ export default class Presentation extends React.Component {
 
           <Slide transition={[]} bgColor="black">
             <Heading size={1} fit caps lineHeight={1} textColor="white">
-              OAUTH 2
+              OAUTH 2 Auhtorization
             </Heading>
           </Slide>
 
@@ -213,6 +229,21 @@ export default class Presentation extends React.Component {
             </Heading></Appear>
           </Slide>
 
+          <Slide transition={[]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Flows for every use case
+            </Heading>
+            <Appear><Heading size={2} textColor="white">
+              Client credentials
+            </Heading></Appear>
+            <Appear><Heading size={2} textColor="white">
+              Authorize code
+            </Heading></Appear>
+            <Appear><Heading size={2} textColor="white">
+              Implicit flow
+            </Heading></Appear>
+          </Slide>
+
           <CodeSlide
             transition={[]}
             lang="js"
@@ -240,14 +271,14 @@ export default class Presentation extends React.Component {
               <Appear><ListItem>Scalable, low-latency, in memory Access Control, OAuth2, and OpenID Connect
                 layer.</ListItem></Appear>
               <Appear><ListItem>Secure by design: Encrypt at rest and in transport.</ListItem></Appear>
-              <Appear><ListItem>Secure by design: Mitigate database penetration attack vectors.</ListItem></Appear>
+              <Appear><ListItem>Mitigate database penetration and leakage.</ListItem></Appear>
               <Appear><ListItem>Runs on top of existing authentication and authorization.</ListItem></Appear>
               <Appear><ListItem>1700 stars, trending multiple times on hackernews, reddit, GitHub,
                 ...</ListItem></Appear>
               <Appear><ListItem>Open Source, written in Google Go and supported by the Ludwig-Maximilians-Universität
                 München (placed 29th world-wide).</ListItem></Appear>
               <Appear><ListItem>Fast growing ecosystem and community.</ListItem></Appear>
-              <Appear><ListItem>Written and designed by me and is now a part of cloud native company Ory GmbH.</ListItem></Appear>
+              <Appear><ListItem>Written and designed by me - now a part of cloud native company Ory GmbH.</ListItem></Appear>
             </List>
           </Slide>
 
