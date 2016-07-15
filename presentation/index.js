@@ -292,6 +292,92 @@ export default class Presentation extends React.Component {
               { loc: next(4, 1) }
             ]}/>
 
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              EASY WINS
+            </Heading>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/defer.go")}
+            ranges={[
+              { loc: start(), title: 'defer' },
+              { loc: next(2, 1) },
+              { loc: next(5, 1) },
+              { loc: next(8, 1) },
+              { loc: next(4, 1) },
+              { loc: next(4, 1) }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/closure.go")}
+            ranges={[
+              { loc: start(), title: 'closures' },
+              { loc: next(1, 1) },
+              { loc: next(7, 1) },
+              { loc: next(1, 1) },
+              { loc: next() },
+              { loc: next(1,1) },
+              { loc: next() },
+              { loc: next() },
+              { loc: next(2,1) }
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/anonymous_structs.go")}
+            ranges={[
+              { loc: start(), title: 'anonymous structs' },
+              { loc: next(1, 1) },
+              { loc: next(3) },
+              { loc: next(4, 1) },
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/embedded.go")}
+            ranges={[
+              { loc: start(), title: 'embedded structs' },
+              { loc: next(1, 1) },
+              { loc: next(4, 1) },
+              { loc: next(5, 1) },
+            ]}/>
+
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/big.go")}
+            ranges={[
+              { loc: start(), title: 'big numbers' },
+              { loc: next(4, 1) },
+              { loc: next(2, 2) },
+              { loc: next(2, 1) },
+              { loc: next(5, 1) },
+            ]}/>
+          
+          <CodeSlide
+            transition={[]}
+            lang="go"
+            code={require("raw!../assets/panic.go")}
+            ranges={[
+              { loc: start(), title: 'panic' },
+              { loc: next(1, 1) },
+              { loc: next(1, 2) },
+              { loc: next(4, 1) }
+            ]}/>
+
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="white">
+              WRITING SERVERS
+            </Heading>
+          </Slide>
+
           <CodeSlide
             transition={[]}
             lang="bash"
